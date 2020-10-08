@@ -1,0 +1,5 @@
+FASTA exercise
+#1
+wc FILE
+#2
+
