@@ -1,0 +1,14 @@
+#!bin/bash
+#FASTA exercise
+#1
+wc -l ../Data/fasta/E.coli.fasta ../Data/fasta/407228326.fasta ../Data/fasta/407228412.fasta
+#2 ("|head -5" easier to see)
+tail -n+2 ../Data/fasta/E.coli.fasta #| head -5 
+#3
+tail -n+2 ../Data/fasta/E.coli.fasta | tr -d "\n\r" | wc -c
+#4
+tail -n+2 ../Data/fasta/E.coli.fasta | tr -d "\n\r" | grep -o ATGC | wc -l
+#5
+a=$(tail -n+2 ../Data/fasta/E.coli.fasta | grep -o A | wc -l) && t=$(tail -n+2 ../Data/fasta/E.coli.fasta | grep -o T | wc -l) && c=$(tail -n+2 ../Data/fasta/E.coli.fasta | grep -o C | wc -l) && g=$(tail -n+2 ../Data/fasta/E.coli.fasta | grep -o G | wc -l) && echo "scale=7; `expr $a + $t`/`expr $c + $g`" | bc
+	#or
+echo $[(`tail -n+2 ../Data/fasta/E.coli.fasta | grep -o A | wc -l`+`tail -n+2 ../Data/fasta/E.coli.fasta | grep -o T | wc -l`)]/$[(`tail -n+2 ../Data/fasta/E.coli.fasta | grep -o C | wc -l`+`tail -n+2 ../Data/fasta/E.coli.fasta | grep -o G | wc -l`)] | bc -l

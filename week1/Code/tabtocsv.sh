@@ -8,6 +8,12 @@
 # Date: Oct 2020
 
 echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
-echo "Done!"
+#while  "$1"-z"Test.txt"
+	if [[ -z "$1" ]]
+	then
+		echo "Please enter a correct filename $1"
+	else
+		cat $1 | tr -s "\t" "," >> $1.csv
+		echo "Done!"
+	fi
 exit

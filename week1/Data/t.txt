@@ -1,0 +1,13 @@
+#!/bin/bash
+a=$(tail -n+2 ../Data/E.coli.fasta | grep -o A | wc -l)
+t=$(tail -n+2 ../Data/E.coli.fasta | grep -o T | wc -l)
+c=$(tail -n+2 ../Data/E.coli.fasta | grep -o C | wc -l)
+g=$(tail -n+2 ../Data/E.coli.fasta | grep -o G | wc -l)
+
+echo `expr $c + $g`
+#echo $[`expr $c + $g` / `expr $a + $t`] | bc -l
+echo "scale=7; `expr $a + $t`/`expr $c + $g`" | bc
+
+echo $[(`tail -n+2 E.coli.fasta | grep -o A | wc -l`+`tail -n+2 E.coli.fasta | grep -o T | wc -l`)]/$[(`tail -n+2 E.coli.fasta | grep -o C | wc -l`+`tail -n+2 E.coli.fasta | grep -o G | wc -l`)] | bc -l
+
+exit
