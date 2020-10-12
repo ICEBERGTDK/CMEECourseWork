@@ -9,9 +9,12 @@
 
 echo "Creating a comma delimited version of $1 ..."
 #while  "$1"-z"Test.txt"
-if [ -z "$1" ]
+if [ -z "$1" -o ! -e "$1" ]
 then
-	echo "Please enter a correct filename $1"
+	echo "Please enter a correct filename"
+elif [[ "$1" != *.txt ]]
+then
+	echo "Please enter a .txt file"
 elif [ -f $1.csv ]
 then 
 	echo "The csv file is already exist. Do you want to replace it?" $ans
