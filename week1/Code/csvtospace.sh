@@ -6,7 +6,10 @@ then
 elif [[ "$1" != *.csv ]]
 then
 	echo "Please enter a .csv file"
-elif [ -e "$1.txt" ]
+elif [ ! -s $1 ]
+then
+	echo "The file is empty"
+elif [ -f $1.txt ]
 then
 	echo "$1.txt is already exist. Do you want to replace it? 'y'or'n'" $ans
 	read ans 

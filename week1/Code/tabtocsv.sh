@@ -15,6 +15,9 @@ then
 elif [[ "$1" != *.txt ]]
 then
 	echo "Please enter a .txt file"
+elif [ ! -s $1 ]
+then
+        echo "The file is empty."
 elif [ -f $1.csv ]
 then 
 	echo "The csv file is already exist. Do you want to replace it?" $ans
@@ -26,12 +29,6 @@ then
 	else
 		echo "ok."
 	fi
-elif [[ $1 == *.csv ]]
-then
-	echo "The file is already a csv file."
-elif [ ! -s $1 ]
-then
-	echo "The file is empty."
 else
 	cat $1 | tr -s "\t" "," >> $1.csv
 	echo "Done!"
