@@ -14,19 +14,19 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
 # derived from  taxa so that it maps order names to sets of taxa. 
 # E.g. 'Chiroptera' : set(['Myotis lucifugus']) etc. 
 
-taxa_dic = {}
-s1 = set()
+taxa_dic = {} # create the dictionary
+s1 = set() # create set1 in order to avoid repetition
 for i in range(len(taxa)):
-        s1.add(taxa[i][1])
-l=list(s1)
+        s1.add(taxa[i][1]) # add common name into set1
+l=list(s1) # change the set to a list in order to edit
 print (l)
 for i in range(len(l)):
-        s2 = set()
+        s2 = set() # create set2 to store latin name
         #print (l[i])
         for j in range(len(taxa)):
                 if taxa[j][1] == l[i]:
                         #print ("in?")
-                        s2.add(taxa[j][0])
+                        s2.add(taxa[j][0]) # put their latin name in set2
         taxa_dic[l[i]] = s2
         #s2.clear()
 print (taxa_dic)

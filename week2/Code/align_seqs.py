@@ -4,7 +4,7 @@ import sys
 # seq2 = "ATCGCCGGATTACGGG"
 # seq1 = "CAATTCGGAT"
 
-def ReadSeq(ListSeq):
+def ReadSeq(ListSeq): # read seqs from align_seq.csv and store seqs in ListSeq
     f = open('../Data/align_seqs.csv','r')
     for line in f:
         ListSeq.append(line)
@@ -67,7 +67,7 @@ def GetScore(s1,s2,l1,l2):
     print("Best score:", my_best_score)
 
 
-def main(argv):
+def main(argv): # the main function
     ListSeq = []
     ListSeq = ReadSeq(ListSeq)
     s1,s2,l1,l2 = SwapSeq(ListSeq[0],ListSeq[1])

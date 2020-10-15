@@ -38,7 +38,7 @@ def foo_6(x): # Calculate the factorial of x in a different way
         x = x - 1
     return facto
 
-def main(argv):
+def main(argv): # the main function
     print(foo_1(2))
     print(foo_2(3,8))
     print(foo_3(7,5,3))
