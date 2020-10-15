@@ -20,15 +20,7 @@ then
         echo "The file is empty."
 elif [ -f $1.csv ]
 then 
-	echo "The csv file is already exist. Do you want to replace it?" $ans
-	read ans
-	if [ $ans == "y" ]
-	then
-		cat $1 | tr -s "\t" "," > $1.csv
-		echo "Done!"
-	else
-		echo "ok."
-	fi
+	echo "The csv file is already exist."
 else
 	cat $1 | tr -s "\t" "," >> $1.csv
 	echo "Done!"
