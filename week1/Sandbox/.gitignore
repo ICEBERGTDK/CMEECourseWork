@@ -1,5 +1,0 @@
-# Ignore everything in this directory
-*~/Documents/CMEECourseWork/week1/Sandbox
-*
-# Except this file
-!.gitignore
