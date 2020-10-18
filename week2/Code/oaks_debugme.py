@@ -2,12 +2,30 @@
 
 import csv
 import sys
+import doctest
 
 #Define function
 def is_an_oak(name):
-    """ Returns True if name is starts with 'quercus' """
+    """ Returns True if name is starts with 'quercus' 
     
-    return name.lower().startswith('quercus') # missed a letter
+    >>> is_an_oak('Quercus')
+    True
+
+    >>> is_an_oak('Quercs')
+    False
+
+    >>> is_an_oak('Quercuss')
+    False
+
+    >>> is_an_oak('quercus')
+    False
+
+    >>> is_an_oak('Fraxinus')
+    False
+
+    """
+
+    return name=='Quercus' # missed a letter
 
 def main(argv): 
     f = open('../Data/TestOaksData.csv','r')
@@ -18,6 +36,7 @@ def main(argv):
     for row in taxa:
         if row[0].lower().startswith('genus'): # skip the first line
             print("This is the title \n")
+            csvwrite.writerow(row)
         else:
             print(row)
             print ("The genus is: ") 
@@ -26,8 +45,10 @@ def main(argv):
                 print('FOUND AN OAK!\n')
                 csvwrite.writerow([row[0], row[1]])
                 oaks.add(row[1]) # add the names into the 'oaks' set
-    print(oaks)
+    print('Quercus : ',oaks)
     return 0
     
 if (__name__ == "__main__"):
     status = main(sys.argv)
+
+doctest.testmod()

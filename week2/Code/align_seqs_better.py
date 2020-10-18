@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""align DNA sequences Practical 2"""
+"""align DNA sequences Groupwork Practical 2"""
 #docstrings are considered part of the running code (normal comments are
 #stripped). Hence, you can access your docstrings at run time.
 __author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
@@ -64,17 +64,23 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 # now try to find the best match (highest score) for the two sequences
 
 def GetScore(s1,s2,l1,l2):
-    my_best_align = None
+    my_best_align = []
     my_best_score = -1
     for i in range(l1): # Note that you just take the last alignment with the highest score
         z = calculate_score(s1, s2, l1, l2, i)
         if z > my_best_score:
-            my_best_align = "." * i + s2 # think about what this is doing!
+            #my_best_align.append("." * i + s2) # think about what this is doing!
             my_best_score = z 
-    print(my_best_align)
-    print(s1)
+    for i in range(l1):
+        z = calculate_score(s1,s2,l1,l2,i)
+        if z >= my_best_score:
+            my_best_align.append("."*i+s2)
+    for align in my_best_align:
+        print(align)
+        print(s1)
     print("Best score:", my_best_score)
 
+    
 
 def main(argv): # the main function
     ListSeq = ReadSeq()

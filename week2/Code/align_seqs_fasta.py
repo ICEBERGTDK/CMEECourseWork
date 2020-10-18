@@ -1,23 +1,45 @@
 #!/usr/bin/env python3
 
-"""align DNA sequences Practical 2"""
+"""align DNA sequences Groupwork Practical"""
 #docstrings are considered part of the running code (normal comments are
 #stripped). Hence, you can access your docstrings at run time.
 __author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
 
 import sys
+import re
 
 # Two example sequences to match
 # seq2 = "ATCGCCGGATTACGGG"
 # seq1 = "CAATTCGGAT"
 
 def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
-    ListSeq = []
-    f = open('../sandbox/align_seqs.csv','r')
-    for line in f:
-        ListSeq.append(line)
-    return ListSeq
+    try:
+        file1_name = sys.argv[1]
+    except:
+        file1_name = "../sandbox/1.fasta"
+    try:
+        file2_name = sys.argv[2]
+    except:
+        file2_name = "../sandbox/2.fasta"
+    f1 = open(file1_name,'r')
+    f2 = open(file2_name,'r')
+    seq1 = ''
+    seq2 = ''
+    ListSeq1 = []
+    ListSeq2 = []
+    Letter = "^[A-Z]+$"
+    for line in f1:
+        if re.match(Letter, line):
+            ListSeq1.append(line.strip("\n"))
+    for line in f2:
+        if re.match(Letter, line):
+            ListSeq2.append(line.strip("\n"))
+    for i in range(len(ListSeq1)):
+        seq1 += ListSeq1[i]
+    for i in range(len(ListSeq2)):
+        seq2 += ListSeq2[i]
+    return seq1,seq2
 
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest
@@ -77,8 +99,8 @@ def GetScore(s1,s2,l1,l2):
 
 
 def main(argv): # the main function
-    ListSeq = ReadSeq()
-    s1,s2,l1,l2 = SwapSeq(ListSeq[0],ListSeq[1])
+    seq1,seq2 = ReadSeq()
+    s1,s2,l1,l2 = SwapSeq(seq1,seq2)
     GetScore(s1,s2,l1,l2)
     return 0
 
