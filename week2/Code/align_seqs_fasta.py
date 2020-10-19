@@ -17,11 +17,11 @@ def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
     try:
         file1_name = sys.argv[1]
     except:
-        file1_name = "../sandbox/1.fasta"
+        file1_name = "../../week1/Data/fasta/407228326.fasta"
     try:
         file2_name = sys.argv[2]
     except:
-        file2_name = "../sandbox/2.fasta"
+        file2_name = "../../week1/Data/fasta/407228412.fasta"
     f1 = open(file1_name,'r')
     f2 = open(file2_name,'r')
     seq1 = ''
@@ -86,16 +86,29 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 # now try to find the best match (highest score) for the two sequences
 
 def GetScore(s1,s2,l1,l2):
-    my_best_align = None
+    my_best_align = []
     my_best_score = -1
     for i in range(l1): # Note that you just take the last alignment with the highest score
         z = calculate_score(s1, s2, l1, l2, i)
         if z > my_best_score:
-            my_best_align = "." * i + s2 # think about what this is doing!
+            #my_best_align = "." * i + s2 # think about what this is doing!
             my_best_score = z 
-    print(my_best_align)
-    print(s1)
+    for i in range(l1):
+        z = calculate_score(s1,s2,l1,l2,i)
+        if z>= my_best_score:
+            my_best_align.append("."*i+s2)
+    for align in my_best_align:
+        print(align)
+        print(s1)
     print("Best score:", my_best_score)
+
+    filename = 'align_seqs_fasta_result.txt'
+    with open ('../results/'+filename,'w') as file_object:
+        for i in range(len(my_best_align)):
+            file_object.write(my_best_align[i]+"\n")
+            file_object.write(s1+"\n")
+            file_object.write("\n")
+        file_object.write("Best score:"+str(my_best_score))
 
 
 def main(argv): # the main function

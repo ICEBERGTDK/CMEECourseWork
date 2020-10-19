@@ -16,7 +16,7 @@ def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
     ListSeq = []
     f = open('../sandbox/align_seqs.csv','r')
     for line in f:
-        ListSeq.append(line)
+        ListSeq.append(line.strip("\n"))
     return ListSeq
 
 # Assign the longer sequence s1, and the shorter to s2
@@ -79,6 +79,14 @@ def GetScore(s1,s2,l1,l2):
         print(align)
         print(s1)
     print("Best score:", my_best_score)
+
+    filename = 'align_seqs_better_result.csv'
+    with open ('../results/'+filename,'w') as file_object:
+        for i in range(len(my_best_align)):
+            file_object.write(my_best_align[i]+"\n")
+            file_object.write(s1+"\n")
+            file_object.write("\n")
+        file_object.write("Best score:"+str(my_best_score))
 
     
 

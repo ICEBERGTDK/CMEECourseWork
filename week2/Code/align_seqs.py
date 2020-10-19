@@ -71,6 +71,12 @@ def GetScore(s1,s2,l1,l2):
         if z > my_best_score:
             my_best_align = "." * i + s2 # think about what this is doing!
             my_best_score = z 
+    filename = 'align_seqs_result.csv'
+    with open ('../results/'+filename,'w') as file_object:
+        file_object.write(my_best_align)
+        file_object.write(s1)
+        file_object.write("Best score:"+str(my_best_score))
+        file_object.write("\n")
     print(my_best_align)
     print(s1)
     print("Best score:", my_best_score)
