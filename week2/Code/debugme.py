@@ -9,5 +9,6 @@ def makeabug(x):
     z = 0.
     y = y/z
     return y
+"""make a bug"""
 
 makeabug(25)

@@ -25,6 +25,7 @@ for i in range(len(CommonN)):
     print(CommonN[i])
 for i in range(len(Detail)):
     print(Detail[i])
+"""print names"""
 
 # (2) Now do the same using conventional loops (you can choose to do this 
 # before 1 !). 
@@ -47,3 +48,4 @@ for i in range(len(CommonN1)):
     print (CommonN1[i])
 for i in range(len(Detail1)):
     print (Detail1[i])
+"""Using loops"""

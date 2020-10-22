@@ -36,3 +36,4 @@ for i in range(len(l)):
         taxa_dic[l[i]] = s2
         #s2.clear()
 print (taxa_dic)
+

@@ -17,6 +17,7 @@ def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
         ListSeq.append(line)
     f.close()
     return ListSeq
+"""readseq"""
 
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest
@@ -32,6 +33,7 @@ def SwapSeq(seq1,seq2):
         s2 = seq1
         l1, l2 = l2, l1 # swap the two lengths
     return s1,s2,l1,l2
+"""swapseq"""
 
 # A function that computes a score by returning the number of matches starting
 # from arbitrary startpoint (chosen by user)
@@ -54,6 +56,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     print(" ")
 
     return score
+"""calculate_score"""
 
 # Test the function with some example starting points:
 # calculate_score(s1, s2, l1, l2, 0)
@@ -80,12 +83,14 @@ def GetScore(s1,s2,l1,l2):
     print(s1)
     print("Best score:", my_best_score)
 
+"""getscore"""
 
 def main(argv): # the main function
     ListSeq = ReadSeq()
     s1,s2,l1,l2 = SwapSeq(ListSeq[0],ListSeq[1])
     GetScore(s1,s2,l1,l2)
     return 0
+"""the main function"""
 
 if (__name__ == "__main__"):
     status = main(sys.argv)

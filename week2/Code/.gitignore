@@ -1,5 +1,5 @@
-*~ 
-*.tmp
+align_seqs_better.py
+align_seqs_fasta.py
 #--------------------R gitignore template-------------------
 # History files
 .Rhistory

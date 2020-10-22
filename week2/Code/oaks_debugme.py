@@ -30,6 +30,7 @@ def is_an_oak(name):
     """
 
     return name=='Quercus' # missed a letter
+"""is an oak"""
 
 def main(argv): 
     f = open('../Data/TestOaksData.csv','r')
@@ -51,6 +52,7 @@ def main(argv):
                 oaks.add(row[1]) # add the names into the 'oaks' set
     print('Quercus : ',oaks)
     return 0
+"""the main function"""
     
 if (__name__ == "__main__"):
     status = main(sys.argv)
