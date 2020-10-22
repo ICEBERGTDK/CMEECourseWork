@@ -6,6 +6,7 @@ __version__ = '0.0.1'
 
 import sys
 
+"""even or odd"""
 def even_or_odd(x=0): # if not specified, x should take value 0.
 
     """Find whether a number x is even or odd."""
@@ -27,6 +28,7 @@ def largest_divisor_five(x=120):
     else: # When all other (if, elif) conditions are not met
         return "No divisor found for %d!" % x # Each function can return a value or a variable.
     return "The largest divisor of %d is %d" % (x, largest)
+"""largest divisor five"""
 
 def is_prime(x=70):
     """Find whether an integer is prime."""
@@ -35,7 +37,8 @@ def is_prime(x=70):
           print("%d is not a prime: %d is a divisor" % (x, i)) 
           return False
     print("%d is a prime!" % x)
-    return True 
+    return True
+"""is prime""" 
 
 def find_all_primes(x=22):
     """Find all the primes up to x"""
@@ -45,7 +48,8 @@ def find_all_primes(x=22):
         allprimes.append(i)
     print("There are %d primes between 2 and %d" % (len(allprimes), x))
     return allprimes
-      
+"""find all primes"""
+
 def main(argv):
     print(even_or_odd(22))
     print(even_or_odd(33))
@@ -55,6 +59,7 @@ def main(argv):
     print(is_prime(59))
     print(find_all_primes(100))
     return 0
+"""the main function"""
 
 if (__name__ == "__main__"):
     status = main(sys.argv)
