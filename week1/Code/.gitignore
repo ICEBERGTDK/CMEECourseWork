@@ -1,5 +1,6 @@
 *~ 
 *.tmp
+*.pdf
 #--------------------R gitignore template-------------------
 # History files
 .Rhistory
