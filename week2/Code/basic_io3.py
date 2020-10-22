@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+__author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
+__version__ = '0.0.1'
+"""
 #############################
 # STORING OBJECTS
 #############################

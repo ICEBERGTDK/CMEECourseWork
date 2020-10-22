@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """align DNA sequences Practical 2"""
-#docstrings are considered part of the running code (normal comments are
-#stripped). Hence, you can access your docstrings at run time.
 __author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
 
@@ -17,6 +15,7 @@ def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
     f = open('../sandbox/align_seqs.csv','r')
     for line in f:
         ListSeq.append(line)
+    f.close()
     return ListSeq
 
 # Assign the longer sequence s1, and the shorter to s2

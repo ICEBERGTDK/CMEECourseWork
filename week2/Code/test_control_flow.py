@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 """Some functions exemplifying the use of control statements"""
-
-__author__ = 'Your Name (Your.Name@your.email.address)'
+"""
+__author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
+"""
 
 import sys
 import doctest # Import the doctest module

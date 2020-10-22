@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """Writing a Program with Control flows Practical"""
-#docstrings are considered part of the running code (normal comments are
-#stripped). Hence, you can access your docstrings at run time.
 __author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
 

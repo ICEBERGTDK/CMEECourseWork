@@ -1,4 +1,8 @@
-# Dengkui Tang,Oct 2020
+#!/usr/bin/env python3
+
+"""oaks_debugme Practical 2"""
+__author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
+__version__ = '0.0.1'
 
 import csv
 import sys
@@ -14,7 +18,7 @@ def is_an_oak(name):
     >>> is_an_oak('Quercs')
     False
 
-    >>> is_an_oak('Quercuss')
+    >>> is_an_oak('Quercus+s')
     False
 
     >>> is_an_oak('quercus')

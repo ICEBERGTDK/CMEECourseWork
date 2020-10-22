@@ -6,6 +6,12 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
          )
 
 #(1) Write three separate list comprehensions that create three different
+#!/usr/bin/env python3
+"""
+__author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
+__version__ = '0.0.1'
+"""
+
 # lists containing the latin names, common names and mean body masses for
 # each species in birds, respectively. 
 
