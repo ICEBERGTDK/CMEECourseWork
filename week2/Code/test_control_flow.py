@@ -9,6 +9,8 @@ __version__ = '0.0.1'
 import sys
 import doctest # Import the doctest module
 
+"""even or odd"""
+
 def even_or_odd(x=0):
     """Find whether a number x is even or odd.
       

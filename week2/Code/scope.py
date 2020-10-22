@@ -4,13 +4,13 @@ __author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
 """
 
-#1
+"""1"""
 _a_global = 10 # a global variable
 
 if _a_global >= 5:
     _b_global = _a_global + 5 # also a global variable
 
-"""function1`"""
+"""function1"""
 def a_function1():
     _a_global = 5 # a local variable
     
@@ -30,7 +30,7 @@ a_function1()
 print("Outside the function, the value of _a_global is ", _a_global)
 print("Outside the function, the value of _b_global is ", _b_global)
 
-#2
+"""2"""
 _a_global = 10
 
 """function2"""
@@ -46,7 +46,7 @@ _a_function2()
 
 print("Outside the function, the value of _a_global is", _a_global)
 
-#3
+"""3"""
 _a_global = 10
 
 print("Outside the function, the value of _a_global is", _a_global)
@@ -67,7 +67,7 @@ print("Outside the function, the value of _a_global now is", _a_global)
 
 """function3"""
 
-#4
+"""4"""
 def a_function4():
     _a_global = 10
 
@@ -89,7 +89,7 @@ a_function4()
 
 print("The value of a_global in main workspace / namespace is ", _a_global)
 
-#5
+"""5"""
 _a_global = 10
 
 def _a_function5():
