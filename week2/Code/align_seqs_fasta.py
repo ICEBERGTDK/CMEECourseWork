@@ -13,6 +13,26 @@ import re
 # seq2 = "ATCGCCGGATTACGGG"
 # seq1 = "CAATTCGGAT"
 
+"""
+def extract_seq(filename):
+    # Extract seq from file (and header if present)
+    
+    with open(filename) as f:
+        line1 = f.readline().strip()
+        pattern = "^[A-Z]+$"
+        no_header = re.match(pattern,line1)
+        if no_header:
+            # if there is no header (just seq)...
+            f.seek(0) # Go back to first line
+            head = None
+            seq = ''.join(line.strip() for line in f) # join all lines into seq
+        else:
+            # If there a header...
+            head = line1
+            seq = ''.join(line.strip() for line in f)
+    return seq, head
+"""    
+
 def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
     try:
         file1_name = sys.argv[1]
