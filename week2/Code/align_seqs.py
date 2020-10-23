@@ -12,7 +12,7 @@ import sys
 
 def ReadSeq(): # read seqs from align_seq.csv and store seqs in ListSeq
     ListSeq = []
-    f = open('../sandbox/align_seqs.csv','r')
+    f = open('../Data/align_seqs.csv','r')
     for line in f:
         ListSeq.append(line)
     f.close()
