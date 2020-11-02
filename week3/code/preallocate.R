@@ -1,19 +1,20 @@
-a <- NA
-F1<-function(a) {
-    for (i in 1:10) {
+
+NoPreallocFun<-function(x) {
+    a <- vector() # empty vector
+    for (i in 1:x) {
         a <- c(a, i)
         print(a)
         print(object.size(a))
     }
 }
-print(system.time(F1(a)))
+print(system.time(NoPreallocFun(10)))
 
-b <- rep(NA, 10)
-F2<-function(b){
-    for (i in 1:10) {
-        b[i] <- i
-        print(b)
-        print(object.size(b))
+PreallocFun<-function(x){
+    a <- rep(NA, x)
+    for (i in 1:x) {
+        a[i] <- i
+        print(a)
+        print(object.size(a))
     }
 }
-print(system.time(F2(b)))
+print(system.time(PreallocFun(10)))

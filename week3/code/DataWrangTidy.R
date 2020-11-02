@@ -49,3 +49,5 @@ dim(MyWrangledData)
 
 ############# Exploring the data (extend the script below)  ###############
 
+MyGatherData <- gather(TempData, Species, Count, 5:ncol(TempData))
+

@@ -1,0 +1,74 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    numbers=left,numberstyle=\tiny,
+    keywordstyle=\color{blue},commentstyle=\color[cmyk]{1,0,1,0},frame=single,escapeinside=``,extendedchars=false,
+    xleftmargin=2em,xrightmargin=2em,aboveskip=1em,tabsize=4,showspaces=false
+}
+
+\title{AutocorrelationInWeather}
+\author{Dengkui Tang}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Compute the appropriate correlation coefficient between successive years and store it.}
+    \subsection{Load the data from "KeyWestAnnualMeanTemperature.RData"}
+    \begin{lstlisting}[language={R}]
+    KWAMT = load("../data/KeyWestAnnualMeanTemperature.RData")
+    \end{lstlisting}
+    \subsection{Read and store data for each column(Year,Temp)}
+    \begin{lstlisting}[language={R}]
+    year=ats$Year
+    temp=ats$Temp
+    \end{lstlisting}
+    \subsection{Calculate(cor())}
+    \begin{lstlisting}[language={R}]
+    result=cor(temp1,temp2)
+    \end{lstlisting}
+
+\section{Repeat this calculation 10000 times by - randomly permuting the time series, and then recalculating the correlation coefficient for each randomly permuted year sequence and storing it}
+    \subsection{Disorganize "Temp" (use the sample function)}
+    \begin{lstlisting}[language={R}]
+    ts=sample(temp)
+    \end{lstlisting}
+    \subsection{Calculate(the same as 1.c)}
+    \begin{lstlisting}[language={R}]
+    ts1=ts[-1]
+    ts2=ts[-length(ts)]
+    \end{lstlisting}
+    \subsection{Loop 10000 times and draw a diagram}
+    \begin{lstlisting}[language={R}]
+    i=1
+    while(i<=10000){
+        Tresult[[i]]<-cor(ts1,ts2)
+    }
+    hist(Tresult)
+    \end{lstlisting}
+
+\section{Calculate what fraction of the correlation coefficients from the previous step were greater than that from step1.}
+    \subsection{Create a vector}
+    \begin{lstlisting}[language={R}]
+    Greater<-vector()
+    \end{lstlisting}
+    \subsection{Use an "if" to judge whether it is greater than "result", and add it into "Greater".}
+    \begin{lstlisting}[language={R}]
+    if(Tresult[[i]]>result){
+        Greater[[j]]<-Tresult[[i]]
+        j=j+1
+    }
+    \end{lstlisting}
+    \subsection{judge whether "Greater" is empty or not}
+    \begin{lstlisting}[language={R}]
+    if(length(Greater)>0){
+        print(length(Greater)/10000)
+    }else{
+        print("No greater value.")
+    }
+    \end{lstlisting}
+
+\end{document}
