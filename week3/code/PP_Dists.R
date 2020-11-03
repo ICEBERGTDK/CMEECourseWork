@@ -39,8 +39,6 @@ mtext("Ratio", side = 3, outer = T, line = -3)
 graphics.off()
 
 
-
-
 df1 <- data.frame()
 df2 <- data.frame()
 df_final <- data.frame()
