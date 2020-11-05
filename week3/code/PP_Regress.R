@@ -4,7 +4,7 @@ MyDF$Type.of.feeding.interaction <- as.factor(MyDF$Type.of.feeding.interaction)
 MyDF$Location <- as.factor(MyDF$Location)
 require(ggplot2)
 require(ggthemes)
-pdf("../results/PP_Regress.R")
+pdf("../results/PP_Regress.pdf")
 p <- ggplot(MyDF,aes(x=log(Prey.mass), y=log(Predator.mass), colour = Predator.lifestage))+
   labs(x="Predator mass in grams",y="Prey mass in grams")+
   geom_point(shape = 3)+
@@ -13,7 +13,6 @@ p <- ggplot(MyDF,aes(x=log(Prey.mass), y=log(Predator.mass), colour = Predator.l
   theme(legend.position = "bottom")+
   guides(col = guide_legend(nrow=1))
 p
-plot(p)
 graphics.off()
 
 Lifestage <- unique(MyDF$Predator.lifestage)
