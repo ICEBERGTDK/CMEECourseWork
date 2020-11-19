@@ -7,7 +7,7 @@ from LV1 import main as mainlv1
 from LV2 import main as mainlv2
 
 pr = cProfile.Profile()
-# LV1.py profiling
+'''LV1.py profiling'''
 pr.enable()
 mainlv1([])
 pr.disable()
@@ -15,6 +15,7 @@ ps = pstats.Stats(pr)
 ps.sort_stats('cumulative').print_stats(10)   
 
 pr.enable()
+'''LV2.py profiling'''
 mainlv2([])
 pr.disable()
 ps = pstats.Stats(pr)

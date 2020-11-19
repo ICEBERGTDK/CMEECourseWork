@@ -5,7 +5,8 @@ import scipy.integrate as integrate
 import matplotlib.pylab as p
 from matplotlib.backends.backend_pdf import PdfPages
 
-def LV1_model(t,pops):
+'''LV1'''
+def LV1_model(t,pops): 
     with PdfPages('../results/LV1.pdf') as pdf:
         f1 = p.figure()
         p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
@@ -29,9 +30,9 @@ def LV1_model(t,pops):
         pdf.savefig(f2)
         p.close()
     return None
-    
+'''LV1_model'''    
 
-def main(argv): # the main function
+def main(argv): 
     def dCR_dt(pops, t=0):
         R = pops[0]
         C = pops[1]
@@ -50,6 +51,7 @@ def main(argv): # the main function
     #print(pops)
     LV1_model(t,pops)
     return 0
+''' the main function '''
 
 if (__name__ == "__main__"):
     status = main(sys.argv)
