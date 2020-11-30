@@ -64,15 +64,15 @@ for (l in 1:length(Lifestage)){
 df = write.csv(df, "../results/PP_Regress_Results.csv")
 
 
-sub_L <- subset(MyDF, Predator.lifestage == Lifestage[6])
-TOFI <- unique(sub_L$Type.of.feeding.interaction)
-sub_T <- subset(sub_L, Type.of.feeding.interaction == TOFI[6])
-out <- summary(lm(log(Predator.mass)~log(Prey.mass), sub_T))
-df1 <- data.frame(R2 = out$r.squared,
-                  f.value = as.numeric(out$fstatistic[1]),
-                  p.value = out$coefficients[8],
-                  Slope = out$coefficients[2],
-                  Intercept = out$coefficients[1],
-                  predator.lifestage = Lifestage[l],
-                  Type.of.feeding.interaction = TOFI[t])
-df1
+#sub_L <- subset(MyDF, Predator.lifestage == Lifestage[6])
+#TOFI <- unique(sub_L$Type.of.feeding.interaction)
+#sub_T <- subset(sub_L, Type.of.feeding.interaction == TOFI[6])
+#out <- summary(lm(log(Predator.mass)~log(Prey.mass), sub_T))
+#df1 <- data.frame(R2 = out$r.squared,
+#                  f.value = as.numeric(out$fstatistic[1]),
+#                  p.value = out$coefficients[8],
+#                  Slope = out$coefficients[2],
+#                  Intercept = out$coefficients[1],
+#                  predator.lifestage = Lifestage[l],
+#                  Type.of.feeding.interaction = TOFI[t])
+#df1
