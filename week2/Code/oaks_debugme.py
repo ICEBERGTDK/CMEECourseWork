@@ -1,60 +1,61 @@
-#!/usr/bin/env python3
+#!/urs/bin/env python3
 
-"""oaks_debugme Practical 2"""
-__author__ = 'Dengkui Tang (dengkui.tang20@imperial.ac.uk)'
+"""Playing with doc tests and debugging"""
+
+__author__ = 'Luke Swaby (lds20@ic.ac.uk), ' \
+             'Jinkai Sun (jingkai.sun20@imperial.ac.uk), ' \
+             'Acacia Tang (t.tang20@imperial.ac.uk), ' \
+             'Dengku Tang (dengkui.tang20@imperial.ac.uk)'
 __version__ = '0.0.1'
 
+## Imports ##
 import csv
 import sys
-import doctest
 
 #Define function
 def is_an_oak(name):
-    """ Returns True if name is starts with 'quercus' 
-    
-    >>> is_an_oak('Quercus')
+    """ Returns True if lowercase name contains 'quercus'
+
+    >>> is_an_oak('Fagus sylvatica')
+    False
+
+    >>> is_an_oak('Fraxinus excelsior')
+    False
+
+    >>> is_an_oak('Quercus ajoensis')
     True
 
-    >>> is_an_oak('Quercs')
-    False
+    >>> is_an_oak('Quercuss ajoensis')
+    True
 
-    >>> is_an_oak('Quercus+s')
-    False
+    >>> is_an_oak('aQuercus')
+    True
 
-    >>> is_an_oak('quercus')
+    >>> is_an_oak('Fagus quercusi')
     False
-
-    >>> is_an_oak('Fraxinus')
-    False
-
     """
+    return 'quercus' in name.split()[0].lower()
 
-    return name=='Quercus' # missed a letter
-"""is an oak"""
-
-def main(argv): 
-    f = open('../Data/TestOaksData.csv','r')
-    g = open('../Data/JustOaksData.csv','w')
+def main():
+    """Run functions
+    """
+    f = open('../Data/TestOaksData.csv', 'r')
+    g = open('../Data/JustOaksData.csv', 'w')
     taxa = csv.reader(f)
+    header = next(taxa, None)
     csvwrite = csv.writer(g)
-    oaks = set()
+    csvwrite.writerow(header)
+    #oaks = set()
     for row in taxa:
-        if row[0].lower().startswith('genus'): # skip the first line
-            print("This is the title \n")
-            csvwrite.writerow(row)
-        else:
-            print(row)
-            print ("The genus is: ") 
-            print(row[0] + '\n')
-            if is_an_oak(row[0]):
-                print('FOUND AN OAK!\n')
-                csvwrite.writerow([row[0], row[1]])
-                oaks.add(row[1]) # add the names into the 'oaks' set
-    print('Quercus : ',oaks)
-    return 0
-"""the main function"""
-    
-if (__name__ == "__main__"):
-    status = main(sys.argv)
+        print(row)
+        print("The genus is: ")
+        print(row[0] + '\n')
+        if is_an_oak(row[0]):
+            print('FOUND AN OAK!\n')
+            csvwrite.writerow([row[0], row[1]])
 
-doctest.testmod()
+    return 0
+
+if __name__ == "__main__":
+    status = main()
+    sys.exit(status)
