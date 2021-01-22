@@ -113,7 +113,6 @@ def main(argv):
         if h1:
             algmt.write(f'{h1}\n')
         algmt.write(s1)
-        #algmt.write('\n\n' + f"Best score: {my_best_score}")
 
     print(f'Best Score: {my_best_score}')
 
@@ -122,3 +121,4 @@ def main(argv):
 if __name__ == '__main__':
     status = main(sys.argv)
     sys.exit(status)
+
